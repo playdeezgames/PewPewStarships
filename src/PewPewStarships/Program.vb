@@ -1,5 +1,5 @@
 Module Program
     Sub Main(args As String())
-        Console.WriteLine("Pew Pew Starships!")
+        Runner.Run()
     End Sub
 End Module

@@ -5,6 +5,7 @@
     <RootNamespace>PewPewStarships</RootNamespace>
     <TargetFramework>net6.0</TargetFramework>
     <OptionStrict>On</OptionStrict>
+    <ImportedNamespaces>PPS.UI=False,Microsoft.VisualBasic=True,System=True,System.Collections=True,System.Collections.Generic=True,System.Diagnostics=True,System.Linq=True,System.Xml.Linq=True,System.Threading.Tasks=True,PewPewStarships=True</ImportedNamespaces>
   </PropertyGroup>
 
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
@@ -17,6 +18,10 @@
 
   <ItemGroup>
     <ProjectReference Include="..\PPS.UI\PPS.UI.vbproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Import Include="PPS.UI" />
   </ItemGroup>
 
 </Project>
