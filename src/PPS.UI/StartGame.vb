@@ -1,4 +1,4 @@
-﻿Friend Module StartGameProcessor
+﻿Friend Module StartGame
 
     Private ReadOnly scenarioTable As IReadOnlyDictionary(Of String, Func(Of IScenario)) =
         New Dictionary(Of String, Func(Of IScenario)) From
@@ -20,6 +20,6 @@
         If answer = NeverMindText Then
             Return
         End If
-        IntroductionProcessor.Run(scenarioTable(answer)())
+        Introduction.Run(scenarioTable(answer)())
     End Sub
 End Module

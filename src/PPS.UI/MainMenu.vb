@@ -11,7 +11,7 @@
         Dim answer = AnsiConsole.Prompt(prompt)
         Select Case answer
             Case NewGameText
-                StartGameProcessor.Run()
+                StartGame.Run()
             Case QuitText
                 Return Not ConfirmQuit()
             Case Else
