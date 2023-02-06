@@ -1,3 +1,15 @@
-﻿Public Class Scenario
+﻿Imports PPS.Data
+
+Public Class Scenario
     Implements IScenario
+    Private Data As New ScenarioData
+
+    Public Property Introduction As String Implements IScenario.Introduction
+        Get
+            Return Data.Introduction
+        End Get
+        Set(value As String)
+            Data.Introduction = value
+        End Set
+    End Property
 End Class

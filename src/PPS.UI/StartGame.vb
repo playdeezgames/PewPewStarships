@@ -8,6 +8,7 @@
 
     Private Function CreateIntroductoryScenario() As IScenario
         Dim scenario As IScenario = New Scenario
+        scenario.Introduction = "This is the introductory scenario."
         Return scenario
     End Function
 
