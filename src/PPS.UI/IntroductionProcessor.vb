@@ -1,5 +1,7 @@
 ﻿Friend Module IntroductionProcessor
     Friend Sub Run(scenario As IScenario)
-        Throw New NotImplementedException()
+        AnsiConsole.Clear()
+        AnsiConsole.MarkupLine("Yer totally running the scenario!")
+        OkPrompt()
     End Sub
 End Module

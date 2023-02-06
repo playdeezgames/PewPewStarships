@@ -1,5 +1,4 @@
 ﻿Friend Module StartGameProcessor
-    Const NeverMindText = "Never Mind"
 
     Private ReadOnly scenarioTable As IReadOnlyDictionary(Of String, Func(Of IScenario)) =
         New Dictionary(Of String, Func(Of IScenario)) From
@@ -8,7 +7,8 @@
         }
 
     Private Function CreateIntroductoryScenario() As IScenario
-        Throw New NotImplementedException()
+        Dim scenario As IScenario = New Scenario
+        Return scenario
     End Function
 
     Friend Sub Run()

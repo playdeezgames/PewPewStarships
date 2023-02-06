@@ -1,10 +1,4 @@
 ﻿Friend Module MainMenu
-    Const NoText = "No"
-    Const QuitText = "Quit"
-    Const NewGameText = "New Game"
-    Const YesText = "Yes"
-    Const MainMenuTitle = "[olive]Main Menu:[/]"
-    Const ConfirmQuitTitle = "[red]Are you sure you want to quit?[/]"
     Friend Sub Run()
         Do While RunLoop()
         Loop
