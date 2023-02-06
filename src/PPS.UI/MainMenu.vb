@@ -1,6 +1,7 @@
 ﻿Friend Module MainMenu
-    Const QuitText = "Quit"
     Const NoText = "No"
+    Const QuitText = "Quit"
+    Const NewGameText = "New Game"
     Const YesText = "Yes"
     Const MainMenuTitle = "[olive]Main Menu:[/]"
     Const ConfirmQuitTitle = "[red]Are you sure you want to quit?[/]"
@@ -12,9 +13,11 @@
     Private Function RunLoop() As Boolean
         AnsiConsole.Clear()
         Dim prompt As New SelectionPrompt(Of String) With {.Title = MainMenuTitle}
-        prompt.AddChoices(QuitText)
+        prompt.AddChoices(NewGameText, QuitText)
         Dim answer = AnsiConsole.Prompt(prompt)
         Select Case answer
+            Case NewGameText
+                StartGameProcessor.Run()
             Case QuitText
                 Return Not ConfirmQuit()
             Case Else
