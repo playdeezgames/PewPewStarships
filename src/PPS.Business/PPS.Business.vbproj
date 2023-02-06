@@ -1,0 +1,25 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <RootNamespace>PPS.Business</RootNamespace>
+    <TargetFramework>netstandard2.1</TargetFramework>
+    <OptionStrict>On</OptionStrict>
+  </PropertyGroup>
+
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
+    <TreatWarningsAsErrors>true</TreatWarningsAsErrors>
+  </PropertyGroup>
+
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|AnyCPU'">
+    <TreatWarningsAsErrors>true</TreatWarningsAsErrors>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Folder Include="My Project\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\PPS.Data\PPS.Data.vbproj" />
+  </ItemGroup>
+
+</Project>
