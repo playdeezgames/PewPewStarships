@@ -1,6 +1,4 @@
-﻿Imports PPS.Data
-
-Public Class Scenario
+﻿Public Class Scenario
     Implements IScenario
     Private Data As New ScenarioData
 
@@ -12,4 +10,8 @@ Public Class Scenario
             Data.Introduction = value
         End Set
     End Property
+
+    Public Function CreateFaction() As IFaction Implements IScenario.CreateFaction
+        Return New Faction
+    End Function
 End Class

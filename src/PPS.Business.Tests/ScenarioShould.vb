@@ -14,5 +14,11 @@ Public Class ScenarioShould
         Dim actual = subject.Introduction
         actual.ShouldBe(expected)
     End Sub
+    <Fact>
+    Sub create_a_faction()
+        Dim subject As IScenario = New Scenario
+        Dim faction = subject.CreateFaction()
+        faction.ShouldNotBeNull
+    End Sub
 End Class
 
