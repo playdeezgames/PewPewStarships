@@ -12,6 +12,8 @@
     End Property
 
     Public Function CreateFaction() As IFaction Implements IScenario.CreateFaction
-        Return New Faction
+        Dim factionIndex = Data.Factions.Count
+        Data.Factions.Add(New FactionData)
+        Return New Faction(Data, factionIndex)
     End Function
 End Class
