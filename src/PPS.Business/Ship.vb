@@ -53,4 +53,13 @@
             Data.Speed = Math.Clamp(value, 0.0, 1.0)
         End Set
     End Property
+
+    Public Property Name As String Implements IShip.Name
+        Get
+            Return Data.Name
+        End Get
+        Set(value As String)
+            Data.Name = value
+        End Set
+    End Property
 End Class

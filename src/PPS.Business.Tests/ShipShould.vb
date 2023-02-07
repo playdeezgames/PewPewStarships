@@ -7,6 +7,7 @@
         Dim faction = scenario.CreateFaction()
         Dim subject = scenario.AddShip(faction, x, y)
         subject.ShouldNotBeNull
+        subject.Name.ShouldBeNull
         subject.X.ShouldBe(x)
         subject.Y.ShouldBe(y)
         subject.Heading.ShouldBe(0.0)
@@ -35,6 +36,16 @@
         Dim subject = scenario.AddShip(faction, 0.0, 0.0)
         subject.Speed = candidate
         Dim actual = subject.Speed
+        actual.ShouldBe(expected)
+    End Sub
+    <Fact>
+    Sub set_name()
+        Const expected = "name"
+        Dim scenario As IScenario = New Scenario
+        Dim faction = scenario.CreateFaction()
+        Dim subject = scenario.AddShip(faction, 0.0, 0.0)
+        subject.Name = expected
+        Dim actual = subject.Name
         actual.ShouldBe(expected)
     End Sub
 End Class

@@ -4,4 +4,5 @@
     ReadOnly Property Faction As IFaction
     Property Heading As Double
     Property Speed As Double
+    Property Name As String
 End Interface
