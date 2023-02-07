@@ -33,6 +33,8 @@
     End Function
 
     Public Function AddShip() As IShip Implements IScenario.AddShip
-        Return New Ship()
+        Dim shipIdentifier As Guid = Guid.NewGuid
+        Data.Ships.Add(shipIdentifier, New ShipData)
+        Return New Ship(Data, shipIdentifier)
     End Function
 End Class
