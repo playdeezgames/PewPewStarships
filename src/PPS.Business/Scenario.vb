@@ -32,10 +32,22 @@
         End Get
     End Property
 
+    Public ReadOnly Property Ships As IEnumerable(Of IShip) Implements IScenario.Ships
+        Get
+            Return Data.Ships.Select(Function(x) New Ship(Data, x.Key))
+        End Get
+    End Property
+
     Public Sub NextFaction() Implements IScenario.NextFaction
         If Not Data.CurrentFaction.HasValue Then
             Return
         End If
+        'how many factions have ships?
+        Dim factionsWithShips As New HashSet(Of Integer)
+        For Each ship In Ships
+
+        Next
+        'if <2, then the scenario is over
         Throw New NotImplementedException()
     End Sub
 

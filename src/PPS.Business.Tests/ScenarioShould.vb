@@ -6,6 +6,7 @@ Public Class ScenarioShould
         subject.Introduction.ShouldBeNull
         subject.CurrentFaction.ShouldBeNull
         subject.IsCompleted.ShouldBe(True)
+        subject.Ships.ShouldBeEmpty
     End Sub
     <Fact>
     Sub contain_an_introduction()
