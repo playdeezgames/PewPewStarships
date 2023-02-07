@@ -31,4 +31,14 @@
         Dim actual = subject.Y
         actual.ShouldBe(expected)
     End Sub
+    <Fact>
+    Sub set_heading()
+        Const expected = 1.0
+        Dim scenario As IScenario = New Scenario
+        Dim faction = scenario.CreateFaction()
+        Dim subject = scenario.AddShip(faction)
+        subject.Heading = expected
+        Dim actual = subject.Heading
+        actual.ShouldBe(expected)
+    End Sub
 End Class

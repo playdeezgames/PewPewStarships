@@ -36,10 +36,13 @@
         End Get
     End Property
 
-    Public ReadOnly Property Heading As Double Implements IShip.Heading
+    Public Property Heading As Double Implements IShip.Heading
         Get
-            Return 0.0
+            Return Data.Heading
         End Get
+        Set(value As Double)
+            Data.Heading = value
+        End Set
     End Property
 
     Public ReadOnly Property Speed As Double Implements IShip.Speed
