@@ -3,20 +3,22 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.4.33205.214
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{F184B08F-C81C-45F6-A57F-5ABD9991F28F}") = "PewPewStarships", "PewPewStarships\PewPewStarships.vbproj", "{491AF383-39B9-49E5-A486-D1BAAFB0A3B4}"
+Project("{778DAE3C-4631-46EA-AA77-85C1314464D9}") = "PewPewStarships", "PewPewStarships\PewPewStarships.vbproj", "{491AF383-39B9-49E5-A486-D1BAAFB0A3B4}"
 EndProject
-Project("{F184B08F-C81C-45F6-A57F-5ABD9991F28F}") = "PPS.Data", "PPS.Data\PPS.Data.vbproj", "{96D98819-1AF1-4FCF-B7C8-849B6E1909EC}"
+Project("{778DAE3C-4631-46EA-AA77-85C1314464D9}") = "PPS.Data", "PPS.Data\PPS.Data.vbproj", "{96D98819-1AF1-4FCF-B7C8-849B6E1909EC}"
 EndProject
-Project("{F184B08F-C81C-45F6-A57F-5ABD9991F28F}") = "PPS.Business", "PPS.Business\PPS.Business.vbproj", "{0DF75C91-A0F5-4D46-AA50-5DEB603A8D3E}"
+Project("{778DAE3C-4631-46EA-AA77-85C1314464D9}") = "PPS.Business", "PPS.Business\PPS.Business.vbproj", "{0DF75C91-A0F5-4D46-AA50-5DEB603A8D3E}"
 EndProject
-Project("{F184B08F-C81C-45F6-A57F-5ABD9991F28F}") = "PPS.UI", "PPS.UI\PPS.UI.vbproj", "{982431CF-6AF7-42AD-A1C4-28BF34F9AE84}"
+Project("{778DAE3C-4631-46EA-AA77-85C1314464D9}") = "PPS.UI", "PPS.UI\PPS.UI.vbproj", "{982431CF-6AF7-42AD-A1C4-28BF34F9AE84}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "_STUFF", "_STUFF", "{D8FAD8BF-26A7-46BE-BF52-1A7FA5235A60}"
 	ProjectSection(SolutionItems) = preProject
 		..\README.md = ..\README.md
 	EndProjectSection
 EndProject
-Project("{F184B08F-C81C-45F6-A57F-5ABD9991F28F}") = "PPS.Business.Tests", "PPS.Business.Tests\PPS.Business.Tests.vbproj", "{F440B224-8B44-44F2-8CB6-A6F3135F35B4}"
+Project("{778DAE3C-4631-46EA-AA77-85C1314464D9}") = "PPS.Business.Tests", "PPS.Business.Tests\PPS.Business.Tests.vbproj", "{F440B224-8B44-44F2-8CB6-A6F3135F35B4}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Tests", "Tests", "{11B9000C-6115-4E53-A529-186AD38FE0B2}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -47,6 +49,9 @@ Global
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{F440B224-8B44-44F2-8CB6-A6F3135F35B4} = {11B9000C-6115-4E53-A529-186AD38FE0B2}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {CA34E8B1-CAC5-44A1-8F50-5E066201728F}

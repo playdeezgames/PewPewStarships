@@ -21,4 +21,13 @@
             Data.Name = value
         End Set
     End Property
+
+    Public Property IsHuman As Boolean Implements IFaction.IsHuman
+        Get
+            Return Data.IsHuman
+        End Get
+        Set(value As Boolean)
+            Data.IsHuman = value
+        End Set
+    End Property
 End Class

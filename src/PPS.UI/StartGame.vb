@@ -11,7 +11,11 @@
             .Introduction = "This is the introductory scenario."
         }
         Dim playerFaction = scenario.CreateFaction()
+        playerFaction.Name = "Player"
+        playerFaction.IsHuman = True
         Dim aiFaction = scenario.CreateFaction()
+        aiFaction.Name = "Computer"
+        aiFaction.IsHuman = False
         Return scenario
     End Function
 
