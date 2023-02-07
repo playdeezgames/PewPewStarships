@@ -6,6 +6,7 @@
         faction.ShouldNotBeNull
         faction.Name.ShouldBeNull
         faction.IsHuman.ShouldBeFalse
+        faction.FactionIndex.ShouldBe(0)
     End Sub
     <Fact>
     Sub allow_setting_a_name()

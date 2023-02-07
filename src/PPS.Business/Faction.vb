@@ -1,7 +1,7 @@
 ﻿Friend Class Faction
     Implements IFaction
     Private ReadOnly _scenarioData As ScenarioData
-    Friend ReadOnly _factionIndex As Integer
+    Private ReadOnly _factionIndex As Integer
     Private ReadOnly Property Data As FactionData
         Get
             Return _scenarioData.Factions(_factionIndex)
@@ -29,5 +29,11 @@
         Set(value As Boolean)
             Data.IsHuman = value
         End Set
+    End Property
+
+    Public ReadOnly Property FactionIndex As Integer Implements IFaction.FactionIndex
+        Get
+            Return _factionIndex
+        End Get
     End Property
 End Class

@@ -22,7 +22,7 @@
             If value Is Nothing Then
                 Data.CurrentFaction = Nothing
             End If
-            Data.CurrentFaction = DirectCast(value, Faction)._factionIndex
+            Data.CurrentFaction = value.FactionIndex
         End Set
     End Property
 

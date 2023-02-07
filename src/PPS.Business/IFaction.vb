@@ -1,4 +1,5 @@
 ﻿Public Interface IFaction
     Property Name As String
     Property IsHuman As Boolean
+    ReadOnly Property FactionIndex As Integer
 End Interface
