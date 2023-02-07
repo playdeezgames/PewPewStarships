@@ -45,9 +45,12 @@
         End Set
     End Property
 
-    Public ReadOnly Property Speed As Double Implements IShip.Speed
+    Public Property Speed As Double Implements IShip.Speed
         Get
-            Return 1.0
+            Return Data.Speed
         End Get
+        Set(value As Double)
+            Data.Speed = value
+        End Set
     End Property
 End Class

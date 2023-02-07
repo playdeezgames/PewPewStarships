@@ -8,7 +8,7 @@
         subject.X.ShouldBe(0.0)
         subject.Y.ShouldBe(0.0)
         subject.Heading.ShouldBe(0.0)
-        subject.Speed.ShouldBe(1.0)
+        subject.Speed.ShouldBe(0.0)
         subject.Faction.ShouldNotBeNull
     End Sub
     <Fact>
@@ -39,6 +39,17 @@
         Dim subject = scenario.AddShip(faction)
         subject.Heading = expected
         Dim actual = subject.Heading
+        actual.ShouldBe(expected)
+    End Sub
+    <Fact>
+    Sub set_speed()
+        Const candidate = 0.5
+        Const expected = 0.5
+        Dim scenario As IScenario = New Scenario
+        Dim faction = scenario.CreateFaction()
+        Dim subject = scenario.AddShip(faction)
+        subject.Speed = candidate
+        Dim actual = subject.Speed
         actual.ShouldBe(expected)
     End Sub
 End Class

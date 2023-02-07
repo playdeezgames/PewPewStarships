@@ -3,5 +3,5 @@
     Property Y As Double
     ReadOnly Property Faction As IFaction
     Property Heading As Double
-    ReadOnly Property Speed As Double
+    Property Speed As Double
 End Interface
