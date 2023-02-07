@@ -31,7 +31,7 @@
     Sub have_ships()
         Dim scenario As IScenario = New Scenario
         Dim faction = scenario.CreateFaction()
-        scenario.AddShip(faction)
+        scenario.AddShip(faction, 0.0, 0.0)
         faction.Ships.ShouldHaveSingleItem
     End Sub
 End Class

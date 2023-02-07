@@ -12,9 +12,7 @@
         Dim aiFaction = scenario.CreateFaction()
         aiFaction.Name = "Computer"
         aiFaction.IsHuman = False
-        Dim ship = scenario.AddShip(aiFaction)
-        ship.X = 100.0
-        ship.Y = 0.0
+        Dim ship = scenario.AddShip(aiFaction, 100.0, 0.0)
     End Sub
 
     Private Sub CreatePlayerFaction(scenario As IScenario)
@@ -22,8 +20,6 @@
         playerFaction.Name = "Player"
         playerFaction.IsHuman = True
         scenario.CurrentFaction = playerFaction
-        Dim ship = scenario.AddShip(playerFaction)
-        ship.X = -100.0
-        ship.Y = 0.0
+        Dim ship = scenario.AddShip(playerFaction, -100.0, 0.0)
     End Sub
 End Module

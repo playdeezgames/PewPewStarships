@@ -50,7 +50,7 @@
             Return Data.Speed
         End Get
         Set(value As Double)
-            Data.Speed = value
+            Data.Speed = Math.Clamp(value, 0.0, 1.0)
         End Set
     End Property
 End Class

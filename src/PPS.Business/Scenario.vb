@@ -58,9 +58,16 @@
         Return New Faction(Data, factionIndex)
     End Function
 
-    Public Function AddShip(faction As IFaction) As IShip Implements IScenario.AddShip
+    Public Function AddShip(faction As IFaction, x As Double, y As Double) As IShip Implements IScenario.AddShip
         Dim shipIdentifier As Guid = Guid.NewGuid
-        Data.Ships.Add(shipIdentifier, New ShipData With {.FactionIndex = faction.FactionIndex})
+        Data.Ships.Add(
+            shipIdentifier,
+            New ShipData With
+            {
+                .FactionIndex = faction.FactionIndex,
+                .X = x,
+                .Y = y
+            })
         Return New Ship(Data, shipIdentifier)
     End Function
 End Class

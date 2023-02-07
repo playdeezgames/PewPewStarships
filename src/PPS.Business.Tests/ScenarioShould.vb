@@ -25,10 +25,14 @@ Public Class ScenarioShould
     End Sub
     <Fact>
     Sub add_a_ship()
+        Const x = 1.0
+        Const y = 2.0
         Dim subject As IScenario = New Scenario
         Dim faction = subject.CreateFaction()
-        Dim ship = subject.AddShip(faction)
+        Dim ship = subject.AddShip(faction, x, y)
         ship.ShouldNotBeNull
+        ship.X.ShouldBe(x)
+        ship.Y.ShouldBe(y)
     End Sub
     <Fact>
     Sub set_current_faction()
