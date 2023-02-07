@@ -36,4 +36,10 @@
             Return _factionIndex
         End Get
     End Property
+
+    Public ReadOnly Property Ships As IEnumerable(Of IShip) Implements IFaction.Ships
+        Get
+            Return _scenarioData.Ships.Where(Function(x) x.Value.FactionIndex = _factionIndex).Select(Function(x) New Ship(_scenarioData, x.Key))
+        End Get
+    End Property
 End Class

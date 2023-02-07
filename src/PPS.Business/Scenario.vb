@@ -42,10 +42,14 @@
         If Not Data.CurrentFaction.HasValue Then
             Return
         End If
-        'how many factions have ships?
-        Dim factionCount = Ships.Select(Function(x) x.Faction.FactionIndex).Distinct()
-        'if <2, then the scenario is over
-        Throw New NotImplementedException()
+        Dim factionCount = Ships.Select(Function(x) x.Faction.FactionIndex).Distinct().Count
+        If factionCount < 2 Then
+            Data.CurrentFaction = Nothing
+            Return
+        End If
+        Do
+            Data.CurrentFaction = (Data.CurrentFaction.Value + 1) Mod Data.Factions.Count
+        Loop Until CurrentFaction.Ships.Any
     End Sub
 
     Public Function CreateFaction() As IFaction Implements IScenario.CreateFaction

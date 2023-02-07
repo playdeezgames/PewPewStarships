@@ -7,6 +7,7 @@
         faction.Name.ShouldBeNull
         faction.IsHuman.ShouldBeFalse
         faction.FactionIndex.ShouldBe(0)
+        faction.Ships.ShouldBeEmpty
     End Sub
     <Fact>
     Sub allow_setting_a_name()
@@ -25,5 +26,12 @@
         faction.IsHuman = expected
         Dim actual = faction.IsHuman
         actual.ShouldBe(expected)
+    End Sub
+    <Fact>
+    Sub have_ships()
+        Dim scenario As IScenario = New Scenario
+        Dim faction = scenario.CreateFaction()
+        scenario.AddShip(faction)
+        faction.Ships.ShouldHaveSingleItem
     End Sub
 End Class
