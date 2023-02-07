@@ -31,4 +31,8 @@
         Data.Factions.Add(New FactionData)
         Return New Faction(Data, factionIndex)
     End Function
+
+    Public Function AddShip() As IShip Implements IScenario.AddShip
+        Return New Ship()
+    End Function
 End Class

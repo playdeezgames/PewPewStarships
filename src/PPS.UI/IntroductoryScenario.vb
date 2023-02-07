@@ -19,5 +19,6 @@
         playerFaction.Name = "Player"
         playerFaction.IsHuman = True
         scenario.CurrentFaction = playerFaction
+        Dim ship = scenario.AddShip()
     End Sub
 End Module
