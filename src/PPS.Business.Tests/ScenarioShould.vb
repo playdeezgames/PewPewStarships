@@ -5,6 +5,7 @@ Public Class ScenarioShould
         subject.ShouldNotBeNull
         subject.Introduction.ShouldBeNull
         subject.CurrentFaction.ShouldBeNull
+        subject.IsCompleted.ShouldBe(True)
     End Sub
     <Fact>
     Sub contain_an_introduction()
@@ -33,6 +34,12 @@ Public Class ScenarioShould
         Dim faction = subject.CreateFaction()
         subject.CurrentFaction = faction
         subject.CurrentFaction.ShouldNotBeNull
+    End Sub
+    <Fact>
+    Sub advance_to_next_faction()
+        Dim subject As IScenario = New Scenario
+        subject.NextFaction()
+        subject.CurrentFaction.ShouldBeNull()
     End Sub
 End Class
 

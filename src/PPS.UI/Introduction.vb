@@ -3,5 +3,6 @@
         AnsiConsole.Clear()
         AnsiConsole.MarkupLine(scenario.Introduction)
         OkPrompt()
+        InPlay.Run(scenario)
     End Sub
 End Module

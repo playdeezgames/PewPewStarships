@@ -26,6 +26,19 @@
         End Set
     End Property
 
+    Public ReadOnly Property IsCompleted As Boolean Implements IScenario.IsCompleted
+        Get
+            Return Not Data.CurrentFaction.HasValue
+        End Get
+    End Property
+
+    Public Sub NextFaction() Implements IScenario.NextFaction
+        If Not Data.CurrentFaction.HasValue Then
+            Return
+        End If
+        Throw New NotImplementedException()
+    End Sub
+
     Public Function CreateFaction() As IFaction Implements IScenario.CreateFaction
         Dim factionIndex = Data.Factions.Count
         Data.Factions.Add(New FactionData)
