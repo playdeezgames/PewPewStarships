@@ -7,6 +7,8 @@
         subject.ShouldNotBeNull
         subject.X.ShouldBe(0.0)
         subject.Y.ShouldBe(0.0)
+        subject.Heading.ShouldBe(0.0)
+        subject.Speed.ShouldBe(1.0)
         subject.Faction.ShouldNotBeNull
     End Sub
     <Fact>

@@ -35,4 +35,16 @@
             Return New Faction(_scenarioData, Data.FactionIndex)
         End Get
     End Property
+
+    Public ReadOnly Property Heading As Double Implements IShip.Heading
+        Get
+            Return 0.0
+        End Get
+    End Property
+
+    Public ReadOnly Property Speed As Double Implements IShip.Speed
+        Get
+            Return 1.0
+        End Get
+    End Property
 End Class
