@@ -49,7 +49,7 @@
         End If
         Do
             Data.CurrentFaction = (Data.CurrentFaction.Value + 1) Mod Data.Factions.Count
-        Loop Until CurrentFaction.Ships.Any
+        Loop until CurrentFaction.Ships.Any
     End Sub
 
     Public Function CreateFaction() As IFaction Implements IScenario.CreateFaction

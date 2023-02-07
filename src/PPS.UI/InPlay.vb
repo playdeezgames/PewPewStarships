@@ -11,5 +11,7 @@ Friend Module InPlay
             End If
             scenario.NextFaction()
         Loop
+        AnsiConsole.MarkupLine("Scenario Complete!")
+        OkPrompt()
     End Sub
 End Module
