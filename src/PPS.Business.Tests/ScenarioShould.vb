@@ -4,6 +4,7 @@ Public Class ScenarioShould
         Dim subject As IScenario = New Scenario
         subject.ShouldNotBeNull
         subject.Introduction.ShouldBeNull
+        subject.CurrentFaction.ShouldBeNull
     End Sub
     <Fact>
     Sub contain_an_introduction()
@@ -19,6 +20,13 @@ Public Class ScenarioShould
         Dim subject As IScenario = New Scenario
         Dim faction = subject.CreateFaction()
         faction.ShouldNotBeNull
+    End Sub
+    <Fact>
+    Sub set_current_faction()
+        Dim subject As IScenario = New Scenario
+        Dim faction = subject.CreateFaction()
+        subject.CurrentFaction = faction
+        subject.CurrentFaction.ShouldNotBeNull
     End Sub
 End Class
 

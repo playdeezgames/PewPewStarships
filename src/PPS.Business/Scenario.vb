@@ -1,6 +1,6 @@
 ﻿Public Class Scenario
     Implements IScenario
-    Private Data As New ScenarioData
+    Private ReadOnly Data As New ScenarioData
 
     Public Property Introduction As String Implements IScenario.Introduction
         Get
@@ -8,6 +8,21 @@
         End Get
         Set(value As String)
             Data.Introduction = value
+        End Set
+    End Property
+
+    Public Property CurrentFaction As IFaction Implements IScenario.CurrentFaction
+        Get
+            If Not Data.CurrentFaction.HasValue Then
+                Return Nothing
+            End If
+            Return New Faction(Data, Data.CurrentFaction.Value)
+        End Get
+        Set(value As IFaction)
+            If value Is Nothing Then
+                Data.CurrentFaction = Nothing
+            End If
+            Data.CurrentFaction = DirectCast(value, Faction)._factionIndex
         End Set
     End Property
 

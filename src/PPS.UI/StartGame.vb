@@ -13,9 +13,11 @@
         Dim playerFaction = scenario.CreateFaction()
         playerFaction.Name = "Player"
         playerFaction.IsHuman = True
+        scenario.CurrentFaction = playerFaction
         Dim aiFaction = scenario.CreateFaction()
         aiFaction.Name = "Computer"
         aiFaction.IsHuman = False
+
         Return scenario
     End Function
 

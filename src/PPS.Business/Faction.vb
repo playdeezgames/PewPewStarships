@@ -1,7 +1,7 @@
 ﻿Friend Class Faction
     Implements IFaction
     Private ReadOnly _scenarioData As ScenarioData
-    Private ReadOnly _factionIndex As Integer
+    Friend ReadOnly _factionIndex As Integer
     Private ReadOnly Property Data As FactionData
         Get
             Return _scenarioData.Factions(_factionIndex)
