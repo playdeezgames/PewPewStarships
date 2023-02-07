@@ -3,7 +3,7 @@
     Private ReadOnly scenarioTable As IReadOnlyDictionary(Of String, Func(Of IScenario)) =
         New Dictionary(Of String, Func(Of IScenario)) From
         {
-            {"Introductory Scenario(Easy)", AddressOf CreateIntroductoryScenario}
+            {"Introductory Scenario(Easy)", AddressOf Create}
         }
 
     Friend Sub Run()
