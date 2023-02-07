@@ -26,7 +26,8 @@ Public Class ScenarioShould
     <Fact>
     Sub add_a_ship()
         Dim subject As IScenario = New Scenario
-        Dim ship = subject.AddShip()
+        Dim faction = subject.CreateFaction()
+        Dim ship = subject.AddShip(faction)
         ship.ShouldNotBeNull
     End Sub
     <Fact>

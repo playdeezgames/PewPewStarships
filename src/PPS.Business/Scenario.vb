@@ -43,10 +43,7 @@
             Return
         End If
         'how many factions have ships?
-        Dim factionsWithShips As New HashSet(Of Integer)
-        For Each ship In Ships
-
-        Next
+        Dim factionCount = Ships.Select(Function(x) x.Faction.FactionIndex).Distinct()
         'if <2, then the scenario is over
         Throw New NotImplementedException()
     End Sub
@@ -57,9 +54,9 @@
         Return New Faction(Data, factionIndex)
     End Function
 
-    Public Function AddShip() As IShip Implements IScenario.AddShip
+    Public Function AddShip(faction As IFaction) As IShip Implements IScenario.AddShip
         Dim shipIdentifier As Guid = Guid.NewGuid
-        Data.Ships.Add(shipIdentifier, New ShipData)
+        Data.Ships.Add(shipIdentifier, New ShipData With {.FactionIndex = faction.FactionIndex})
         Return New Ship(Data, shipIdentifier)
     End Function
 End Class

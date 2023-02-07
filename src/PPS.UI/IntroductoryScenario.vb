@@ -19,7 +19,7 @@
         playerFaction.Name = "Player"
         playerFaction.IsHuman = True
         scenario.CurrentFaction = playerFaction
-        Dim ship = scenario.AddShip()
+        Dim ship = scenario.AddShip(playerFaction)
         ship.X = -100.0
         ship.Y = 0.0
     End Sub

@@ -1,7 +1,7 @@
 ﻿Friend Class Ship
     Implements IShip
-    Private _scenarioData As ScenarioData
-    Private _shipIdentifier As Guid
+    Private ReadOnly _scenarioData As ScenarioData
+    Private ReadOnly _shipIdentifier As Guid
     Sub New(scenarioData As ScenarioData, shipIdentifier As Guid)
         _scenarioData = scenarioData
         _shipIdentifier = shipIdentifier
@@ -28,5 +28,11 @@
         Set(value As Double)
             Data.Y = value
         End Set
+    End Property
+
+    Public ReadOnly Property Faction As IFaction Implements IShip.Faction
+        Get
+            Return New Faction(_scenarioData, Data.FactionIndex)
+        End Get
     End Property
 End Class
