@@ -5,4 +5,5 @@
     Property Heading As Double
     Property Speed As Double
     Property Name As String
+    ReadOnly Property Identifier As Integer
 End Interface

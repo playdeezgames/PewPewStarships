@@ -13,6 +13,7 @@
         subject.Heading.ShouldBe(0.0)
         subject.Speed.ShouldBe(0.0)
         subject.Faction.ShouldNotBeNull
+        subject.Identifier.ShouldBe(0)
     End Sub
     <Fact>
     Sub set_heading()

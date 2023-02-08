@@ -62,4 +62,10 @@
             Data.Name = value
         End Set
     End Property
+
+    Public ReadOnly Property Identifier As Integer Implements IShip.Identifier
+        Get
+            Return _shipIdentifier
+        End Get
+    End Property
 End Class
