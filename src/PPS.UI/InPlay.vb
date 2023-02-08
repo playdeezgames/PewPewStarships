@@ -7,12 +7,18 @@ Friend Module InPlay
             If faction.IsHuman Then
                 HumanTurn.Run(faction)
             Else
-                'computer turn
+                RunComputerTurn(faction)
             End If
             scenario.NextFaction()
         Loop
         AnsiConsole.Clear()
         AnsiConsole.MarkupLine("Scenario Complete!")
+        OkPrompt()
+    End Sub
+
+    Private Sub RunComputerTurn(faction As IFaction)
+        AnsiConsole.Clear()
+        AnsiConsole.MarkupLine($"{faction.Name}'s turn:")
         OkPrompt()
     End Sub
 End Module
