@@ -1,6 +1,4 @@
-﻿Imports System.Security
-
-Friend Module InPlay
+﻿Friend Module InPlay
     Friend Sub Run(scenario As IScenario)
         Do While Not scenario.IsCompleted
             Dim faction = scenario.CurrentFaction
