@@ -5,7 +5,7 @@ Friend Module InPlay
         Do While Not scenario.IsCompleted
             Dim faction = scenario.CurrentFaction
             If faction.IsHuman Then
-                RunHumanTurn(faction)
+                HumanTurn.Run(faction)
             Else
                 'computer turn
             End If
@@ -13,15 +13,6 @@ Friend Module InPlay
         Loop
         AnsiConsole.Clear()
         AnsiConsole.MarkupLine("Scenario Complete!")
-        OkPrompt()
-    End Sub
-
-    Private Sub RunHumanTurn(faction As IFaction)
-        AnsiConsole.Clear()
-        AnsiConsole.MarkupLine($"{faction.Name}'s turn:")
-        For Each ship In faction.Ships
-            AnsiConsole.MarkupLine($"{ship.Name}: ({ship.X},{ship.Y})")
-        Next
         OkPrompt()
     End Sub
 End Module
