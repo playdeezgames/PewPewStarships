@@ -34,7 +34,13 @@
 
     Public ReadOnly Property Ships As IEnumerable(Of IShip) Implements IScenario.Ships
         Get
-            Return Data.Ships.Select(Function(x) New Ship(Data, x.Key))
+            Dim shipIndex = 0
+            Dim result As New List(Of IShip)
+            For Each ship In Data.Ships
+                result.Add(New Ship(Data, shipIndex))
+                shipIndex += 1
+            Next
+            Return result
         End Get
     End Property
 
@@ -59,9 +65,8 @@
     End Function
 
     Public Function AddShip(faction As IFaction, x As Double, y As Double) As IShip Implements IScenario.AddShip
-        Dim shipIdentifier As Guid = Guid.NewGuid
+        Dim shipIdentifier = Data.Ships.Count
         Data.Ships.Add(
-            shipIdentifier,
             New ShipData With
             {
                 .FactionIndex = faction.FactionIndex,

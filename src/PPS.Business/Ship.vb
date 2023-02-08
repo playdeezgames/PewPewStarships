@@ -1,8 +1,8 @@
 ﻿Friend Class Ship
     Implements IShip
     Private ReadOnly _scenarioData As ScenarioData
-    Private ReadOnly _shipIdentifier As Guid
-    Sub New(scenarioData As ScenarioData, shipIdentifier As Guid)
+    Private ReadOnly _shipIdentifier As Integer
+    Sub New(scenarioData As ScenarioData, shipIdentifier As Integer)
         _scenarioData = scenarioData
         _shipIdentifier = shipIdentifier
     End Sub

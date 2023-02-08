@@ -39,7 +39,15 @@
 
     Public ReadOnly Property Ships As IEnumerable(Of IShip) Implements IFaction.Ships
         Get
-            Return _scenarioData.Ships.Where(Function(x) x.Value.FactionIndex = _factionIndex).Select(Function(x) New Ship(_scenarioData, x.Key))
+            Dim result As New List(Of IShip)
+            Dim shipIndex = 0
+            For Each shipData In _scenarioData.Ships
+                If shipData.FactionIndex = _factionIndex Then
+                    result.Add(New Ship(_scenarioData, shipIndex))
+                End If
+                shipIndex += 1
+            Next
+            Return result
         End Get
     End Property
 End Class
