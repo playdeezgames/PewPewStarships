@@ -12,7 +12,7 @@
         Dim aiFaction = scenario.CreateFaction()
         aiFaction.Name = "Computer"
         aiFaction.IsHuman = False
-        Dim ship = scenario.AddShip(aiFaction, 100.0, 0.0)
+        Dim ship = scenario.AddShip(aiFaction, 5.0, 0.0)
         ship.Name = "Ship#1"
     End Sub
 
@@ -21,7 +21,7 @@
         playerFaction.Name = "Player"
         playerFaction.IsHuman = True
         scenario.CurrentFaction = playerFaction
-        Dim ship = scenario.AddShip(playerFaction, -100.0, 0.0)
+        Dim ship = scenario.AddShip(playerFaction, -5.0, 0.0)
         ship.Name = "Ship#1"
     End Sub
 End Module

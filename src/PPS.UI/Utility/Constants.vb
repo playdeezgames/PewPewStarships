@@ -9,5 +9,6 @@
     Friend Const NoText = "No"
     Friend Const PewPewStarshipsTitle = "Pew Pew Starships!"
     Friend Const QuitText = "Quit"
+    Friend Const ScanText = "Scan..."
     Friend Const YesText = "Yes"
 End Module

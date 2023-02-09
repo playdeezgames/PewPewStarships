@@ -6,6 +6,11 @@
         _scenarioData = scenarioData
         _shipIdentifier = shipIdentifier
     End Sub
+
+    Public Function Scan() As IEnumerable(Of IShip) Implements IShip.Scan
+        Return Array.Empty(Of IShip)
+    End Function
+
     Private ReadOnly Property Data As ShipData
         Get
             Return _scenarioData.Ships(_shipIdentifier)

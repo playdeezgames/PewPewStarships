@@ -49,4 +49,12 @@
         Dim actual = subject.Name
         actual.ShouldBe(expected)
     End Sub
+    <Fact>
+    Sub scan_for_other_ships()
+        Dim scenario As IScenario = New Scenario
+        Dim faction = scenario.CreateFaction()
+        Dim subject = scenario.AddShip(faction, 0.0, 0.0)
+        Dim scanResults = subject.Scan()
+        scanResults.ShouldBeEmpty()
+    End Sub
 End Class

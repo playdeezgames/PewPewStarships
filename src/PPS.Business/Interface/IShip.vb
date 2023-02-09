@@ -6,4 +6,5 @@
     Property Speed As Double
     Property Name As String
     ReadOnly Property Identifier As Integer
+    Function Scan() As IEnumerable(Of IShip)
 End Interface
