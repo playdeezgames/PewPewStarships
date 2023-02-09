@@ -7,4 +7,6 @@
     Property Name As String
     ReadOnly Property Identifier As Integer
     Function Scan() As IEnumerable(Of IShip)
+    ReadOnly Property ScanRange As Double
+    Function DistanceFrom(other As IShip) As Double
 End Interface

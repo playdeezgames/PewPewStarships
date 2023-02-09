@@ -14,6 +14,9 @@
         subject.Speed.ShouldBe(0.0)
         subject.Faction.ShouldNotBeNull
         subject.Identifier.ShouldBe(0)
+        subject.ScanRange.ShouldBe(10.0)
+        Dim scanResults = subject.Scan()
+        scanResults.ShouldBeEmpty()
     End Sub
     <Fact>
     Sub set_heading()
@@ -49,12 +52,24 @@
         Dim actual = subject.Name
         actual.ShouldBe(expected)
     End Sub
-    <Fact>
-    Sub scan_for_other_ships()
+    <Theory>
+    <InlineData(5.0, 1)>
+    Sub scan_for_other_ships(otherShipX As Double, expectedCount As Integer)
         Dim scenario As IScenario = New Scenario
         Dim faction = scenario.CreateFaction()
         Dim subject = scenario.AddShip(faction, 0.0, 0.0)
+        scenario.AddShip(faction, otherShipX, 0.0)
         Dim scanResults = subject.Scan()
-        scanResults.ShouldBeEmpty()
+        scanResults.Count.ShouldBe(expectedCount)
+    End Sub
+    <Theory>
+    <InlineData(5.0, 5.0)>
+    Sub determine_distance_to_other_ship(otherShipX As Double, expectedDistance As Double)
+        Dim scenario As IScenario = New Scenario
+        Dim faction = scenario.CreateFaction()
+        Dim subject = scenario.AddShip(faction, 0.0, 0.0)
+        Dim other = scenario.AddShip(faction, otherShipX, 0.0)
+        Dim actual = subject.DistanceFrom(other)
+        actual.ShouldBe(expectedDistance)
     End Sub
 End Class

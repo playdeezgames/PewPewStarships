@@ -8,7 +8,23 @@
     End Sub
 
     Public Function Scan() As IEnumerable(Of IShip) Implements IShip.Scan
-        Return Array.Empty(Of IShip)
+        Dim result As New List(Of IShip)
+        For index = 0 To _scenarioData.Ships.Count - 1
+            If index = _shipIdentifier Then
+                Continue For
+            End If
+            Dim otherShip = New Ship(_scenarioData, index)
+            If otherShip.DistanceFrom(Me) <= ScanRange Then
+                result.Add(otherShip)
+            End If
+        Next
+        Return result
+    End Function
+
+    Public Function DistanceFrom(other As IShip) As Double Implements IShip.DistanceFrom
+        Dim deltaX = other.X - X
+        Dim deltaY = other.Y - Y
+        Return Math.Sqrt(deltaX * deltaX + deltaY * deltaY)
     End Function
 
     Private ReadOnly Property Data As ShipData
@@ -71,6 +87,12 @@
     Public ReadOnly Property Identifier As Integer Implements IShip.Identifier
         Get
             Return _shipIdentifier
+        End Get
+    End Property
+
+    Public ReadOnly Property ScanRange As Double Implements IShip.ScanRange
+        Get
+            Return 10.0
         End Get
     End Property
 End Class
