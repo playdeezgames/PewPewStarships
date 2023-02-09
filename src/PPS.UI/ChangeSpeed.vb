@@ -1,10 +1,9 @@
-﻿Friend Module ChangeHeading
+﻿Friend Module ChangeSpeed
     Friend Sub Run(faction As IFaction)
-        AnsiConsole.Clear()
         Dim ship = PickShip(faction.Ships)
         If ship Is Nothing Then
             Return
         End If
-        ship.Heading = AnsiConsole.Ask("[olive]New Heading?[/]", ship.Heading)
+        ship.Speed = AnsiConsole.Ask("[olive]New Speed?[/]", ship.Speed)
     End Sub
 End Module

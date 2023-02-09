@@ -1,5 +1,6 @@
 ﻿Friend Module Constants
     Friend Const ChangeHeadingText = "Change Heading..."
+    Friend Const ChangeSpeedText = "Change Speed..."
     Friend Const ConfirmQuitTitle = "[red]Are you sure you want to quit?[/]"
     Friend Const MainMenuTitle = "[olive]Main Menu:[/]"
     Friend Const NeverMindText = "Never Mind"

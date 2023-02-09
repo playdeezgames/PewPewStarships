@@ -9,11 +9,14 @@
             Next
             Dim prompt As New SelectionPrompt(Of String) With {.Title = "[olive]Yer Orders?[/]"}
             prompt.AddChoice(ChangeHeadingText)
+            prompt.AddChoice(ChangeSpeedText)
             prompt.AddChoice(NextTurnText)
             Dim answer = AnsiConsole.Prompt(prompt)
             Select Case answer
                 Case ChangeHeadingText
                     ChangeHeading.Run(faction)
+                Case ChangeSpeedText
+                    ChangeSpeed.Run(faction)
                 Case NextTurnText
                     Exit Do
             End Select
