@@ -5,6 +5,8 @@
 * The world exists
 * Ships exist in the world
 * Ships set a heading and a speed
+* Ships move
+* Ships can hold torpedos
 * Ships can fire torpedos
 * Torpedoes must be loaded in order to fire, which takes time
 * Ships occupy a certain radius completely
