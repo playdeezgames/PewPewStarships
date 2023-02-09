@@ -54,8 +54,18 @@
             Return
         End If
         Do
-            Data.CurrentFaction = (Data.CurrentFaction.Value + 1) Mod Data.Factions.Count
-        Loop until CurrentFaction.Ships.Any
+            Dim candidate = (Data.CurrentFaction.Value + 1)
+            If candidate >= Data.Factions.Count Then
+                MoveShips()
+            End If
+            Data.CurrentFaction = candidate Mod Data.Factions.Count
+        Loop Until CurrentFaction.Ships.Any
+    End Sub
+
+    Private Sub MoveShips()
+        For Each ship In Ships
+            ship.Move()
+        Next
     End Sub
 
     Public Function CreateFaction() As IFaction Implements IScenario.CreateFaction

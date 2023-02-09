@@ -82,4 +82,15 @@
         Dim actual = subject.HeadingTo(other)
         actual.ShouldBe(expectedHeading)
     End Sub
+    <Fact>
+    Sub move()
+        Dim scenario As IScenario = New Scenario
+        Dim faction = scenario.CreateFaction()
+        Dim subject = scenario.AddShip(faction, 0.0, 0.0)
+        subject.Heading = 90
+        subject.Speed = 1.0
+        subject.Move()
+        subject.X.ShouldBe(0.00000000000000006123233995736766)
+        subject.Y.ShouldBe(1.0)
+    End Sub
 End Class

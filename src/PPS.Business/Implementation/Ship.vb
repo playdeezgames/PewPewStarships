@@ -31,6 +31,11 @@
         Return Math.Atan2(other.Y - Y, other.X - X) * 180.0 / Math.PI
     End Function
 
+    Public Sub Move() Implements IShip.Move
+        X += Math.Cos(Heading * Math.PI / 180.0) * Speed
+        Y += Math.Sin(Heading * Math.PI / 180.0) * Speed
+    End Sub
+
     Private ReadOnly Property Data As ShipData
         Get
             Return _scenarioData.Ships(_shipIdentifier)

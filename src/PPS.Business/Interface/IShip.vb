@@ -10,4 +10,5 @@
     ReadOnly Property ScanRange As Double
     Function DistanceFrom(other As IShip) As Double
     Function HeadingTo(other As IShip) As Double
+    Sub Move()
 End Interface
