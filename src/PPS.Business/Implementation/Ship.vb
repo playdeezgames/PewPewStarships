@@ -27,6 +27,10 @@
         Return Math.Sqrt(deltaX * deltaX + deltaY * deltaY)
     End Function
 
+    Public Function HeadingTo(other As IShip) As Double Implements IShip.HeadingTo
+        Return Math.Atan2(other.Y - Y, other.X - X) * 180.0 / Math.PI
+    End Function
+
     Private ReadOnly Property Data As ShipData
         Get
             Return _scenarioData.Ships(_shipIdentifier)

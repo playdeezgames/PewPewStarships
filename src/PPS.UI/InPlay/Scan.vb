@@ -5,7 +5,10 @@
             Return
         End If
         Dim otherShips = ship.Scan()
-        AnsiConsole.MarkupLine($"{ship.Name} sees {otherShips.Count} other ships.")
+        AnsiConsole.MarkupLine($"{ship.Name} sees {otherShips.Count} other ships:")
+        For Each otherShip In otherShips
+            AnsiConsole.MarkupLine($"Faction: {otherShip.Faction.Name}, Name: {otherShip.Name}, Distance: {otherShip.DistanceFrom(ship):f}, Heading: {ship.HeadingTo(otherShip):f}")
+        Next
         OkPrompt()
     End Sub
 End Module

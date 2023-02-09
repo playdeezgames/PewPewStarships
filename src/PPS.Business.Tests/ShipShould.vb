@@ -72,4 +72,14 @@
         Dim actual = subject.DistanceFrom(other)
         actual.ShouldBe(expectedDistance)
     End Sub
+    <Theory>
+    <InlineData(5.0, 5.0, 45.0)>
+    Sub determine_heading_to_other_ship(otherShipX As Double, otherShipY As Double, expectedHeading As Double)
+        Dim scenario As IScenario = New Scenario
+        Dim faction = scenario.CreateFaction()
+        Dim subject = scenario.AddShip(faction, 0.0, 0.0)
+        Dim other = scenario.AddShip(faction, otherShipX, otherShipY)
+        Dim actual = subject.HeadingTo(other)
+        actual.ShouldBe(expectedHeading)
+    End Sub
 End Class

@@ -9,4 +9,5 @@
     Function Scan() As IEnumerable(Of IShip)
     ReadOnly Property ScanRange As Double
     Function DistanceFrom(other As IShip) As Double
+    Function HeadingTo(other As IShip) As Double
 End Interface
