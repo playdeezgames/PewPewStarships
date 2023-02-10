@@ -36,6 +36,12 @@
         Y += Math.Sin(Heading * Math.PI / 180.0) * Speed
     End Sub
 
+    Public Function AddTorpedoTube() As ITorpedoTube Implements IShip.AddTorpedoTube
+        Dim tubeIdentifier = Data.TorpedoTubes.Count
+        Data.TorpedoTubes.Add(New TorpedoTubeData)
+        Return New TorpedoTube(_scenarioData, _shipIdentifier, tubeIdentifier)
+    End Function
+
     Private ReadOnly Property Data As ShipData
         Get
             Return _scenarioData.Ships(_shipIdentifier)
@@ -102,6 +108,27 @@
     Public ReadOnly Property ScanRange As Double Implements IShip.ScanRange
         Get
             Return 10.0
+        End Get
+    End Property
+
+    Public Property Torpedos As Integer Implements IShip.Torpedos
+        Get
+            Return Data.Torpedos
+        End Get
+        Set(value As Integer)
+            Data.Torpedos = value
+        End Set
+    End Property
+
+    Public ReadOnly Property TorpedoTubes As IEnumerable(Of ITorpedoTube) Implements IShip.TorpedoTubes
+        Get
+            Dim result As New List(Of ITorpedoTube)
+            Dim index = 0
+            For Each torpedoTube In Data.TorpedoTubes
+                result.Add(New TorpedoTube(_scenarioData, _shipIdentifier, index))
+                index += 1
+            Next
+            Return result
         End Get
     End Property
 End Class

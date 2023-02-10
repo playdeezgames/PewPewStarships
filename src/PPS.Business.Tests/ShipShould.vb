@@ -17,6 +17,8 @@
         subject.ScanRange.ShouldBe(10.0)
         Dim scanResults = subject.Scan()
         scanResults.ShouldBeEmpty()
+        subject.Torpedos.ShouldBe(0)
+        subject.TorpedoTubes.ShouldBeEmpty
     End Sub
     <Fact>
     Sub set_heading()
@@ -50,6 +52,16 @@
         Dim subject = scenario.AddShip(faction, 0.0, 0.0)
         subject.Name = expected
         Dim actual = subject.Name
+        actual.ShouldBe(expected)
+    End Sub
+    <Fact>
+    Sub set_torpedo_count()
+        Const expected = 5
+        Dim scenario As IScenario = New Scenario
+        Dim faction = scenario.CreateFaction()
+        Dim subject = scenario.AddShip(faction, 0.0, 0.0)
+        subject.Torpedos = expected
+        Dim actual = subject.Torpedos
         actual.ShouldBe(expected)
     End Sub
     <Theory>
@@ -92,5 +104,14 @@
         subject.Move()
         subject.X.ShouldBe(0.00000000000000006123233995736766)
         subject.Y.ShouldBe(1.0)
+    End Sub
+    <Fact>
+    Sub add_a_torpedo_tube()
+        Dim scenario As IScenario = New Scenario
+        Dim faction = scenario.CreateFaction()
+        Dim subject = scenario.AddShip(faction, 0.0, 0.0)
+        Dim tube As ITorpedoTube = subject.AddTorpedoTube()
+        tube.ShouldNotBeNull
+        subject.TorpedoTubes.ShouldHaveSingleItem
     End Sub
 End Class

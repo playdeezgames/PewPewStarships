@@ -11,4 +11,7 @@
     Function DistanceFrom(other As IShip) As Double
     Function HeadingTo(other As IShip) As Double
     Sub Move()
+    Function AddTorpedoTube() As ITorpedoTube
+    ReadOnly Property TorpedoTubes As IEnumerable(Of ITorpedoTube)
+    Property Torpedos As Integer
 End Interface
