@@ -14,6 +14,8 @@
         aiFaction.IsHuman = True
         Dim ship = scenario.AddShip(aiFaction, 5.0, 0.0)
         ship.Name = "Ship#B1"
+        ship.Torpedos = 10
+        ship.AddTorpedoTube()
     End Sub
 
     Private Sub CreatePlayerFaction(scenario As IScenario)
@@ -23,5 +25,7 @@
         scenario.CurrentFaction = playerFaction
         Dim ship = scenario.AddShip(playerFaction, -5.0, 0.0)
         ship.Name = "Ship#A1"
+        ship.Torpedos = 10
+        ship.AddTorpedoTube()
     End Sub
 End Module
