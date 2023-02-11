@@ -39,7 +39,12 @@
         If CanLoad Then
             Ship.Torpedos -= 1
             Data.IsLoaded = True
+            Data.CanFire = False
         End If
+    End Sub
+
+    Public Sub Update() Implements ITorpedoTube.Update
+        Data.CanFire = Data.IsLoaded
     End Sub
 
     Private ReadOnly Property Ship As IShip
@@ -50,7 +55,7 @@
 
     Public ReadOnly Property CanFire As Boolean Implements ITorpedoTube.CanFire
         Get
-            Return False
+            Return Data.CanFire
         End Get
     End Property
 End Class

@@ -25,4 +25,15 @@
         ship.Torpedos.ShouldBe(0)
         subject.CanFire.ShouldBeFalse
     End Sub
+    <Fact>
+    Public Sub update()
+        Dim scenario As IScenario = New Scenario()
+        Dim faction = scenario.CreateFaction()
+        Dim ship = scenario.AddShip(faction, 0.0, 0.0)
+        ship.Torpedos = 1
+        Dim subject = ship.AddTorpedoTube()
+        subject.Load()
+        subject.Update()
+        subject.CanFire.ShouldBeTrue
+    End Sub
 End Class

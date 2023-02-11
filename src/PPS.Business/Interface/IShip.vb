@@ -10,7 +10,7 @@
     ReadOnly Property ScanRange As Double
     Function DistanceFrom(other As IShip) As Double
     Function HeadingTo(other As IShip) As Double
-    Sub Move()
+    Sub Update()
     Function AddTorpedoTube() As ITorpedoTube
     ReadOnly Property TorpedoTubes As IEnumerable(Of ITorpedoTube)
     Property Torpedos As Integer

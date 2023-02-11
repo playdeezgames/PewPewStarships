@@ -56,15 +56,15 @@
         Do
             Dim candidate = (Data.CurrentFaction.Value + 1)
             If candidate >= Data.Factions.Count Then
-                MoveShips()
+                UpdateShips()
             End If
             Data.CurrentFaction = candidate Mod Data.Factions.Count
         Loop Until CurrentFaction.Ships.Any
     End Sub
 
-    Private Sub MoveShips()
+    Private Sub UpdateShips()
         For Each ship In Ships
-            ship.Move()
+            ship.Update()
         Next
     End Sub
 

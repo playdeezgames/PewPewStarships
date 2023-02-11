@@ -31,9 +31,12 @@
         Return Math.Atan2(other.Y - Y, other.X - X) * 180.0 / Math.PI
     End Function
 
-    Public Sub Move() Implements IShip.Move
+    Public Sub Update() Implements IShip.Update
         X += Math.Cos(Heading * Math.PI / 180.0) * Speed
         Y += Math.Sin(Heading * Math.PI / 180.0) * Speed
+        For Each torpedoTube In TorpedoTubes
+            torpedoTube.Update()
+        Next
     End Sub
 
     Public Function AddTorpedoTube() As ITorpedoTube Implements IShip.AddTorpedoTube

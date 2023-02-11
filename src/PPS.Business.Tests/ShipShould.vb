@@ -95,13 +95,17 @@
         actual.ShouldBe(expectedHeading)
     End Sub
     <Fact>
-    Sub move()
+    Sub update()
         Dim scenario As IScenario = New Scenario
         Dim faction = scenario.CreateFaction()
         Dim subject = scenario.AddShip(faction, 0.0, 0.0)
+        subject.Torpedos = 1
+        Dim tube = subject.AddTorpedoTube
+        tube.Load()
         subject.Heading = 90
         subject.Speed = 1.0
-        subject.Move()
+        subject.Update()
+        tube.CanFire.ShouldBeTrue
         subject.X.ShouldBe(0.00000000000000006123233995736766)
         subject.Y.ShouldBe(1.0)
     End Sub
