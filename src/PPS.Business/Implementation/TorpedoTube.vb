@@ -54,6 +54,7 @@
         Data.CanFire = False
         Data.IsLoaded = False
         'TODO: determine if target is destroyed
+        'based on distance?
     End Sub
 
     Private ReadOnly Property Ship As IShip
