@@ -4,7 +4,7 @@
         Const x = 1.0
         Const y = 2.0
         Dim scenario As IScenario = New Scenario
-        Dim faction = scenario.CreateFaction()
+        Dim faction = scenario.AddFaction()
         Dim subject = scenario.AddShip(faction, x, y)
         subject.ShouldNotBeNull
         subject.Name.ShouldBeNull
@@ -19,12 +19,13 @@
         scanResults.ShouldBeEmpty()
         subject.Torpedos.ShouldBe(0)
         subject.TorpedoTubes.ShouldBeEmpty
+        subject.IsDestroyed.ShouldBeFalse
     End Sub
     <Fact>
     Sub set_heading()
         Const expected = 1.0
         Dim scenario As IScenario = New Scenario
-        Dim faction = scenario.CreateFaction()
+        Dim faction = scenario.AddFaction()
         Dim subject = scenario.AddShip(faction, 0.0, 0.0)
         subject.Heading = expected
         Dim actual = subject.Heading
@@ -38,7 +39,7 @@
     <InlineData(1.5, 1.0)>
     Sub set_speed(candidate As Double, expected As Double)
         Dim scenario As IScenario = New Scenario
-        Dim faction = scenario.CreateFaction()
+        Dim faction = scenario.AddFaction()
         Dim subject = scenario.AddShip(faction, 0.0, 0.0)
         subject.Speed = candidate
         Dim actual = subject.Speed
@@ -48,7 +49,7 @@
     Sub set_name()
         Const expected = "name"
         Dim scenario As IScenario = New Scenario
-        Dim faction = scenario.CreateFaction()
+        Dim faction = scenario.AddFaction()
         Dim subject = scenario.AddShip(faction, 0.0, 0.0)
         subject.Name = expected
         Dim actual = subject.Name
@@ -58,7 +59,7 @@
     Sub set_torpedo_count()
         Const expected = 5
         Dim scenario As IScenario = New Scenario
-        Dim faction = scenario.CreateFaction()
+        Dim faction = scenario.AddFaction()
         Dim subject = scenario.AddShip(faction, 0.0, 0.0)
         subject.Torpedos = expected
         Dim actual = subject.Torpedos
@@ -68,7 +69,7 @@
     <InlineData(5.0, 1)>
     Sub scan_for_other_ships(otherShipX As Double, expectedCount As Integer)
         Dim scenario As IScenario = New Scenario
-        Dim faction = scenario.CreateFaction()
+        Dim faction = scenario.AddFaction()
         Dim subject = scenario.AddShip(faction, 0.0, 0.0)
         scenario.AddShip(faction, otherShipX, 0.0)
         Dim scanResults = subject.Scan()
@@ -78,7 +79,7 @@
     <InlineData(5.0, 5.0)>
     Sub determine_distance_to_other_ship(otherShipX As Double, expectedDistance As Double)
         Dim scenario As IScenario = New Scenario
-        Dim faction = scenario.CreateFaction()
+        Dim faction = scenario.AddFaction()
         Dim subject = scenario.AddShip(faction, 0.0, 0.0)
         Dim other = scenario.AddShip(faction, otherShipX, 0.0)
         Dim actual = subject.DistanceFrom(other)
@@ -88,7 +89,7 @@
     <InlineData(5.0, 5.0, 45.0)>
     Sub determine_heading_to_other_ship(otherShipX As Double, otherShipY As Double, expectedHeading As Double)
         Dim scenario As IScenario = New Scenario
-        Dim faction = scenario.CreateFaction()
+        Dim faction = scenario.AddFaction()
         Dim subject = scenario.AddShip(faction, 0.0, 0.0)
         Dim other = scenario.AddShip(faction, otherShipX, otherShipY)
         Dim actual = subject.HeadingTo(other)
@@ -97,7 +98,7 @@
     <Fact>
     Sub update()
         Dim scenario As IScenario = New Scenario
-        Dim faction = scenario.CreateFaction()
+        Dim faction = scenario.AddFaction()
         Dim subject = scenario.AddShip(faction, 0.0, 0.0)
         subject.Torpedos = 1
         Dim tube = subject.AddTorpedoTube
@@ -112,7 +113,7 @@
     <Fact>
     Sub add_a_torpedo_tube()
         Dim scenario As IScenario = New Scenario
-        Dim faction = scenario.CreateFaction()
+        Dim faction = scenario.AddFaction()
         Dim subject = scenario.AddShip(faction, 0.0, 0.0)
         Dim tube As ITorpedoTube = subject.AddTorpedoTube()
         tube.ShouldNotBeNull

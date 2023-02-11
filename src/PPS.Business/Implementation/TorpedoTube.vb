@@ -47,6 +47,15 @@
         Data.CanFire = Data.IsLoaded
     End Sub
 
+    Public Sub Fire(target As IShip) Implements ITorpedoTube.Fire
+        If Not CanFire Then
+            Return
+        End If
+        Data.CanFire = False
+        Data.IsLoaded = False
+        'TODO: determine if target is destroyed
+    End Sub
+
     Private ReadOnly Property Ship As IShip
         Get
             Return New Ship(_scenarioData, _shipIdentifier)

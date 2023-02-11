@@ -3,4 +3,5 @@
     Property IsHuman As Boolean
     ReadOnly Property FactionIndex As Integer
     ReadOnly Property Ships As IEnumerable(Of IShip)
+    ReadOnly Property EnemyShips As IEnumerable(Of IShip)
 End Interface

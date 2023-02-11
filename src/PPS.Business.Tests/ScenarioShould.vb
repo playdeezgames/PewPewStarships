@@ -20,7 +20,7 @@ Public Class ScenarioShould
     <Fact>
     Sub create_a_faction()
         Dim subject As IScenario = New Scenario
-        Dim faction = subject.CreateFaction()
+        Dim faction = subject.AddFaction()
         faction.ShouldNotBeNull
     End Sub
     <Fact>
@@ -28,7 +28,7 @@ Public Class ScenarioShould
         Const x = 1.0
         Const y = 2.0
         Dim subject As IScenario = New Scenario
-        Dim faction = subject.CreateFaction()
+        Dim faction = subject.AddFaction()
         Dim ship = subject.AddShip(faction, x, y)
         ship.ShouldNotBeNull
         ship.X.ShouldBe(x)
@@ -37,7 +37,7 @@ Public Class ScenarioShould
     <Fact>
     Sub set_current_faction()
         Dim subject As IScenario = New Scenario
-        Dim faction = subject.CreateFaction()
+        Dim faction = subject.AddFaction()
         subject.CurrentFaction = faction
         subject.CurrentFaction.ShouldNotBeNull
     End Sub

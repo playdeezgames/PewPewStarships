@@ -12,6 +12,7 @@
     Function HeadingTo(other As IShip) As Double
     Sub Update()
     Function AddTorpedoTube() As ITorpedoTube
+    ReadOnly Property IsDestroyed As Boolean
     ReadOnly Property TorpedoTubes As IEnumerable(Of ITorpedoTube)
     Property Torpedos As Integer
 End Interface

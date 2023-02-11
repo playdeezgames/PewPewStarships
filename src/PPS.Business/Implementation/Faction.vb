@@ -50,4 +50,18 @@
             Return result
         End Get
     End Property
+
+    Public ReadOnly Property EnemyShips As IEnumerable(Of IShip) Implements IFaction.EnemyShips
+        Get
+            Dim result As New List(Of IShip)
+            Dim shipIndex = 0
+            For Each shipData In _scenarioData.Ships
+                If shipData.FactionIndex <> _factionIndex Then
+                    result.Add(New Ship(_scenarioData, shipIndex))
+                End If
+                shipIndex += 1
+            Next
+            Return result
+        End Get
+    End Property
 End Class

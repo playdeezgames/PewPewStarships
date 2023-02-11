@@ -15,4 +15,21 @@
         End If
         Return table(answer)
     End Function
+
+    Friend Function PickTorpedoTube(faction As IFaction) As ITorpedoTube
+        Dim ship = PickShip(faction.Ships)
+        If ship Is Nothing Then
+            Return Nothing
+        End If
+        Dim table = ship.TorpedoTubes.ToDictionary(Function(x) $"#{x.TubeIndex}, {If(x.IsLoaded, "LOADED", "UNLOADED")}, {If(x.CanFire, "CAN FIRE", "CANNOT FIRE")}", Function(x) x)
+        AnsiConsole.MarkupLine($"{Ship.Name} has {Ship.Torpedos} torpedos available.")
+        Dim prompt As New SelectionPrompt(Of String) With {.Title = "[olive]Which Tube?[/]"}
+        prompt.AddChoice(NeverMindText)
+        prompt.AddChoices(table.Keys)
+        Dim answer = AnsiConsole.Prompt(prompt)
+        If answer = NeverMindText Then
+            Return Nothing
+        End If
+        Return table(answer)
+    End Function
 End Module

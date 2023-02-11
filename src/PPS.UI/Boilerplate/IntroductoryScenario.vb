@@ -9,7 +9,7 @@
     End Function
 
     Private Sub CreateComputerFaction(scenario As IScenario)
-        Dim aiFaction = scenario.CreateFaction()
+        Dim aiFaction = scenario.AddFaction()
         aiFaction.Name = "Second Player"
         aiFaction.IsHuman = True
         Dim ship = scenario.AddShip(aiFaction, 5.0, 0.0)
@@ -19,7 +19,7 @@
     End Sub
 
     Private Sub CreatePlayerFaction(scenario As IScenario)
-        Dim playerFaction = scenario.CreateFaction()
+        Dim playerFaction = scenario.AddFaction()
         playerFaction.Name = "First Player"
         playerFaction.IsHuman = True
         scenario.CurrentFaction = playerFaction

@@ -68,7 +68,7 @@
         Next
     End Sub
 
-    Public Function CreateFaction() As IFaction Implements IScenario.CreateFaction
+    Public Function AddFaction() As IFaction Implements IScenario.AddFaction
         Dim factionIndex = Data.Factions.Count
         Data.Factions.Add(New FactionData)
         Return New Faction(Data, factionIndex)

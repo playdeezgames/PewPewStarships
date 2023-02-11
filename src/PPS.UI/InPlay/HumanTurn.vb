@@ -12,6 +12,7 @@
             prompt.AddChoice(ChangeSpeedText)
             prompt.AddChoice(ScanText)
             prompt.AddChoice(LoadTorpedoText)
+            prompt.AddChoice(FireTorpedoText)
             prompt.AddChoice(NextTurnText)
             Dim answer = AnsiConsole.Prompt(prompt)
             Select Case answer
@@ -21,6 +22,8 @@
                     ChangeSpeed.Run(faction)
                 Case LoadTorpedoText
                     LoadTorpedo.Run(faction)
+                Case FireTorpedoText
+                    FireTorpedo.Run(faction)
                 Case NextTurnText
                     Exit Do
                 Case ScanText

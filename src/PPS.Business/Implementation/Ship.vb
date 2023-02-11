@@ -134,4 +134,10 @@
             Return result
         End Get
     End Property
+
+    Public ReadOnly Property IsDestroyed As Boolean Implements IShip.IsDestroyed
+        Get
+            Return False
+        End Get
+    End Property
 End Class
