@@ -11,6 +11,7 @@
             prompt.AddChoice(ChangeHeadingText)
             prompt.AddChoice(ChangeSpeedText)
             prompt.AddChoice(ScanText)
+            prompt.AddChoice(LoadTorpedoText)
             prompt.AddChoice(NextTurnText)
             Dim answer = AnsiConsole.Prompt(prompt)
             Select Case answer
@@ -18,10 +19,12 @@
                     ChangeHeading.Run(faction)
                 Case ChangeSpeedText
                     ChangeSpeed.Run(faction)
-                Case ScanText
-                    Scan.Run(faction)
+                Case LoadTorpedoText
+                    LoadTorpedo.Run(faction)
                 Case NextTurnText
                     Exit Do
+                Case ScanText
+                    Scan.Run(faction)
             End Select
         Loop
     End Sub
