@@ -4,7 +4,7 @@
         If ship Is Nothing Then
             Return
         End If
-        Dim table = ship.TorpedoTubes.ToDictionary(Function(x) $"#{x.TubeIndex}, {If(x.IsLoaded, "LOADED", "UNLOADED")}", Function(x) x)
+        Dim table = ship.TorpedoTubes.ToDictionary(Function(x) $"#{x.TubeIndex}, {If(x.IsLoaded, "LOADED", "UNLOADED")}, {If(x.CanFire, "CAN FIRE", "CANNOT FIRE")}", Function(x) x)
         AnsiConsole.MarkupLine($"{ship.Name} has {ship.Torpedos} torpedos available.")
         Dim prompt As New SelectionPrompt(Of String) With {.Title = "[olive]Which Tube?[/]"}
         prompt.AddChoice(NeverMindText)
