@@ -9,6 +9,7 @@
         subject.TubeIndex.ShouldBe(0)
         subject.CanLoad.ShouldBeFalse
         subject.IsLoaded.ShouldBeFalse
+        subject.CanFire.ShouldBeFalse
     End Sub
     <Fact>
     Public Sub load()
@@ -22,5 +23,6 @@
         subject.IsLoaded.ShouldBeTrue
         subject.CanLoad.ShouldBeFalse
         ship.Torpedos.ShouldBe(0)
+        subject.CanFire.ShouldBeFalse
     End Sub
 End Class

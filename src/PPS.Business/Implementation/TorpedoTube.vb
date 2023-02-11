@@ -47,4 +47,10 @@
             Return New Ship(_scenarioData, _shipIdentifier)
         End Get
     End Property
+
+    Public ReadOnly Property CanFire As Boolean Implements ITorpedoTube.CanFire
+        Get
+            Return False
+        End Get
+    End Property
 End Class
